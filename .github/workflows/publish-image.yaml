@@ -27,5 +27,5 @@ jobs:
         with:
           push: true
           tags: |
-            nitricimages/nitric-dev-api-gateway:latest
-            nitricimages/nitric-dev-api-gateway:${{ steps.tag.outputs.TAG }}
+            nitricimages/dev-api-gateway:latest
+            nitricimages/dev-api-gateway:${{ steps.tag.outputs.TAG }}

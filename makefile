@@ -1,6 +1,6 @@
 docker:
 	@echo Building Docker Image
-	@docker build -t nitricimages/nitric-dev-api-gateway .
+	@docker build -t nitricimages/dev-api-gateway .
 
 clean:
 	@echo Cleaning build artifacts
