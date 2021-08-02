@@ -36,7 +36,7 @@ func main() {
 			targetURL := fmt.Sprintf("http://%s:9001", target.Name)
 
 			// pass through the request
-			newReq, _ := http.NewRequest(r.Method, fmt.Sprintf("%s%s", targetURL, route.Path), r.Body)
+			newReq, _ := http.NewRequest(r.Method, fmt.Sprintf("%s%s", targetURL, r.URL.Path), r.Body)
 			newReq.Header = r.Header
 
 			if res, err := http.DefaultClient.Do(newReq); err == nil {
