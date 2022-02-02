@@ -35,8 +35,15 @@ func main() {
 			// target should be all good here...
 			targetURL := fmt.Sprintf("http://%s:9001", target.Name)
 
+			// Append the path
+			targetURL = fmt.Sprintf("%s%s", targetURL, r.URL.Path)
+
+			if r.URL.RawQuery != "" {
+				targetURL = fmt.Sprintf("%s?%s", targetURL, r.URL.RawQuery)
+			}
+
 			// pass through the request
-			newReq, _ := http.NewRequest(r.Method, fmt.Sprintf("%s%s", targetURL, r.URL.Path), r.Body)
+			newReq, _ := http.NewRequest(r.Method, targetURL, r.Body)
 			newReq.Header = r.Header
 
 			if res, err := http.DefaultClient.Do(newReq); err == nil {
